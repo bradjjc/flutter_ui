@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_ui/data/fake_data.dart';
 import 'package:flutter_ui/model/profile.dart';
-import 'package:flutter_ui/profil_topsection.dart';
+import 'package:flutter_ui/ui/profil_topsection.dart';
+import 'package:flutter_ui/ui/profile_body.dart';
+import 'package:flutter_ui/ui/profile_head_section.dart';
 
 void main() {
   runApp(MyApp());
@@ -58,21 +60,53 @@ class MyHomePage extends StatelessWidget {
               shrinkWrap: true,
               children: [
                 ProfileTopSection(profile),
+                ProfileHeadSection(profile),
+                Divider(
+                  color: Colors.blueGrey,
+                ),
+                ProfileBodySection(profile),
               ],
             ),
           ),
           Row(
             children: [
               Expanded(
-                child: ElevatedButton(
-                  onPressed: null,
-                  child: Text('별로에요'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(Colors.white),
+                        shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(15),
+                    ),
+                        ),
+                    ),
+
+                    onPressed: () {},
+                    child: Text('별로에요', style: TextStyle(color: Colors.black),),
+                  ),
                 ),
               ),
               Expanded(
-                child: ElevatedButton(
-                  onPressed: null,
-                  child: Text('별로에요'),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: ElevatedButton(
+                    style: ButtonStyle(
+                      backgroundColor: MaterialStateProperty.all(
+                          Color(0xFF34B4BE)),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      ),
+                    ),
+
+                    onPressed: () {},
+                    child: Text('괜찬아요',
+                      style: TextStyle(color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],
